@@ -6,11 +6,13 @@ import Select from '../Select/Select';
 import Checkbox from '../CheckBox/CheckBox';
 import { Button } from '@mui/material';
 import { useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { addAliment } from '../../actions/actions';
 
 function App() {
-
-  const alimentsMatin = useSelector(state => state.alimentsMatin);
+  const alimentsUser = useSelector(state => state.alimentsUser);
   const alimentSelected = useSelector(state => state.alimentSelected);
+  const dispatch = useDispatch();
     console.log(alimentSelected);
   return (
 
@@ -18,7 +20,7 @@ function App() {
       {/* <Input /> */}
       <form onSubmit={(e) => {
         e.preventDefault();
-        console.log(e)}}>
+        dispatch(addAliment())}}>
       <Select 
      />
       <Checkbox />
@@ -26,7 +28,7 @@ function App() {
         Valider
       </Button>
       </form>
-      <Section title="Matin" aliments={alimentsMatin} />
+      <Section title="Matin" aliments={alimentsUser} />
 
     </div>
 

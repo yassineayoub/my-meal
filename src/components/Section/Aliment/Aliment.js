@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
 import React from 'react'
 
-const Aliment = ({ name, protein, carbohydrate, fat, quantity }) => {
+const Aliment = ({ label, protein, carbohydrate, fat, quantity }) => {
   return (
     <tr>
-      <td>{name}</td>
+      <td>{label}</td>
       <td>{protein}</td>
       <td>{carbohydrate}</td>
       <td>{fat}</td>
       <td>
-        <label htmlFor={`quantity-${name}`}>
-            <input id={`quantity-${name}`}  />
+        <label htmlFor={`quantity-${label}`}>
+            <input id={`quantity-${label}`} value={quantity}  />
         </label>
       </td>
     </tr>
@@ -18,7 +18,7 @@ const Aliment = ({ name, protein, carbohydrate, fat, quantity }) => {
 }
 
 Aliment.propTypes = {
-  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
   protein: PropTypes.number.isRequired,
   carbohydrate: PropTypes.number.isRequired,
   fat: PropTypes.number.isRequired,

@@ -2,16 +2,10 @@ import { ADD_ALIMENT, SET_ALIMENTS, SET_ALIMENT_CALORIES, SET_ALIMENT_SELECTED }
 
 const initialState = {
   alimentSelected: '',
+  whereToAdd: 'Matin',
   alimentCalorie: '',
-  alimentsMatin: [
-    {
-      id: 1,
-      name: 'banane',
-      protein: 15,
-      carbohydrate: 50,
-      fat: 2,
-      quantity: 50,
-    },
+  alimentsUser: [
+   
   ],
   aliments: [
     {
@@ -20,23 +14,23 @@ const initialState = {
       protein: 15,
       carbohydrate: 50,
       fat: 2,
-      quantity: 50,
+      quantity: 100,
     },
     {
       id: 2,
       label: 'banane',
       protein: 15,
-      carbohydrate: 50,
+      carbohydrate: 12,
       fat: 2,
-      quantity: 50,
+      quantity: 100,
     },
     {
       id: 3,
       label: 'coco',
-      protein: 15,
-      carbohydrate: 50,
+      protein: 1,
+      carbohydrate: 54,
       fat: 2,
-      quantity: 50,
+      quantity: 100,
     },
     {
       id: 4,
@@ -61,9 +55,11 @@ const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
 
   case ADD_ALIMENT:
+    // const alimentToInsert = state.alimentSelected.map()
+    const alimentToInsert = state.aliments.find((aliment) => aliment.label === state.alimentSelected)
     return { 
       ...state, 
-      aliments: [...state.aliments, {name: state.alimentName , calorie: state.alimentCalorie}] 
+      alimentsUser: [...state.alimentsUser, alimentToInsert] 
     }
     case SET_ALIMENT_SELECTED:
     return { 

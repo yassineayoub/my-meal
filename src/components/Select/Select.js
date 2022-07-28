@@ -12,7 +12,7 @@ export default function ComboBox() {
       return (
         <Autocomplete
           disablePortal
-          id="combo-box-demo"
+          id="selectAliment"
           options={aliments}
           sx={{ width: 300 }}
           renderInput={(params) => <TextField onSelect={(e)=> dispatch(setAlimentSelected(e.target.value))} {...params} label="Aliments" />}
