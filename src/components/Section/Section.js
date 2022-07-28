@@ -2,7 +2,7 @@ import Aliment from './Aliment/Aliment';
 import './Section.css';
 
 const Section = ({ title, aliments }) => {
-  const alimentsToDisplay = aliments.map((aliment) => <Aliment {...aliment} />)
+  const alimentsToDisplay = aliments.map((aliment) => <Aliment key={aliment.id}{...aliment} />)
   
   return (
     <section className="section__meal">

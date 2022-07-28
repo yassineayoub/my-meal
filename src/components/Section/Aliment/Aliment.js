@@ -8,17 +8,21 @@ const Aliment = ({ name, protein, carbohydrate, fat, quantity }) => {
       <td>{protein}</td>
       <td>{carbohydrate}</td>
       <td>{fat}</td>
-      <td>{quantity}&nbsp;g</td>
+      <td>
+        <label htmlFor={`quantity-${name}`}>
+            <input id={`quantity-${name}`}  />
+        </label>
+      </td>
     </tr>
   )
 }
 
 Aliment.propTypes = {
   name: PropTypes.string.isRequired,
-  protein: PropTypes.string.isRequired,
-  carbohydrate: PropTypes.string.isRequired,
-  fat: PropTypes.string.isRequired,
-  quantity: PropTypes.string.isRequired,
+  protein: PropTypes.number.isRequired,
+  carbohydrate: PropTypes.number.isRequired,
+  fat: PropTypes.number.isRequired,
+  quantity: PropTypes.number.isRequired,
 };
 
 export default Aliment;
