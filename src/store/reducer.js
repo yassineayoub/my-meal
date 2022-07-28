@@ -3,6 +3,16 @@ import { ADD_ALIMENT, SET_ALIMENTS, SET_ALIMENT_CALORIES, SET_ALIMENT_NAME } fro
 const initialState = {
   alimentName: '',
   alimentCalorie: '',
+  alimentsMatin: [
+    {
+      id: 1,
+      name: 'banane',
+      protein: 15,
+      carbohydrate: 50,
+      fat: 2,
+      quantity: 50,
+    },
+  ],
   aliments: [
     {
       id: 1,
