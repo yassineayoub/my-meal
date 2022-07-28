@@ -1,17 +1,39 @@
-import { ADD_ALIMENT, SET_ALIMENT_CALORIES, SET_ALIMENT_NAME } from "../actions/actions"
+import { ADD_ALIMENT, SET_ALIMENTS, SET_ALIMENT_CALORIES, SET_ALIMENT_NAME } from "../actions/actions"
 
 const initialState = {
   alimentName: '',
   alimentCalorie: '',
   aliments: [
     {
+      id: 1,
       name: 'Aliment Test',
       calorie: 200,
     },
     {
+      id: 2,
       name: 'Aliment Test 2',
       calorie: 200,
-    }
+    },
+    {
+      id: 3,
+      name: 'Aliment Test 3',
+      calorie: 200,
+    },
+    {
+      id: 4,
+      name: 'Aliment Test 4',
+      calorie: 200,
+    },
+    {
+      id: 5,
+      name: 'Aliment Test 5',
+      calorie: 200,
+    },
+    {
+      id: 6,
+      name: 'Aliment Test 6',
+      calorie: 200,
+    },
   ]
 }
 
@@ -33,6 +55,11 @@ const reducer = (state = initialState, { type, payload }) => {
       ...state, 
       alimentCalorie: payload 
     }
+    case SET_ALIMENTS:
+      return {
+        ...state,
+        aliments: payload
+      }
 
   default:
     return state

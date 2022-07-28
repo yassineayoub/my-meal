@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
 const Generate = ({ aliments }) => {
-console.log(aliments)
   return (
     <div>
       {aliments.map(({ name, calorie }) => <p>{name} / {calorie}cal </p>)}

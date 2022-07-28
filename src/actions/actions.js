@@ -20,3 +20,12 @@ export const setAlimentCalories = (calories) => {
     payload : calories,
   }
 };
+
+export const SET_ALIMENTS = 'SET_ALIMENTS';
+export const setAliments = (aliments) => {
+  return {
+    type: SET_ALIMENT_CALORIES,
+    payload: aliments,
+  
+  }
+};
