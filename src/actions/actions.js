@@ -5,11 +5,13 @@ export const addAliment = () => {
   }
 };
 
-export const SET_ALIMENT_NAME = 'SET_ALIMENT_NAME';
-export const setAlimentName = (alimentName) => {
+export const SET_ALIMENT_SELECTED = 'SET_ALIMENT_SELECTED';
+export const setAlimentSelected = (alimentSelected) => {
   return {
-    type: SET_ALIMENT_NAME,
-    payload : alimentName,
+    type: SET_ALIMENT_SELECTED,
+    payload : {
+      alimentSelected,
+    },
   }
 };
 
@@ -25,7 +27,9 @@ export const SET_ALIMENTS = 'SET_ALIMENTS';
 export const setAliments = (aliments) => {
   return {
     type: SET_ALIMENT_CALORIES,
-    payload: aliments,
+    payload: {
+      aliments,
+    },
   
   }
 };

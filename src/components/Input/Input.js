@@ -13,7 +13,7 @@ const Input = () => {
       e.preventDefault();
       dispatch(addAliment());
     }}>
-      <TextField label="Nom aliment" value={alimentName} onChange={(e) => dispatch(setAlimentName(e.currentTarget.value))} />
+      {/* <TextField label="Nom aliment" value={alimentName} onChange={(e) => dispatch(setAlimentName(e.currentTarget.value))} /> */}
       <TextField label="calories" value={alimentCalorie} onChange={(e) => dispatch(setAlimentCalories(e.currentTarget.value))} />
       <Button type='submit' variant="outlined" 
       >Generer</Button>
