@@ -17,12 +17,10 @@ function App() {
   return (
 
     <div className="App">
-      {/* <Input /> */}
       <form onSubmit={(e) => {
         e.preventDefault();
         dispatch(addAliment())}}>
-      <Select 
-     />
+      <Select />
       <Checkbox />
       <Button type='submit' variant="outlined">
         Valider

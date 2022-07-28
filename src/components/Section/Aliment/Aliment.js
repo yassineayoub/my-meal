@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
 import React from 'react'
+import { useDispatch } from 'react-redux';
+import { setQuantity } from '../../../actions/actions';
 
-const Aliment = ({ label, protein, carbohydrate, fat, quantity }) => {
+const Aliment = ({ id, label, protein, carbohydrate, fat, quantity }) => {
+  const dispatch = useDispatch();
   return (
     <tr>
       <td>{label}</td>
@@ -10,7 +13,7 @@ const Aliment = ({ label, protein, carbohydrate, fat, quantity }) => {
       <td>{fat}</td>
       <td>
         <label htmlFor={`quantity-${label}`}>
-            <input id={`quantity-${label}`} value={quantity}  />
+            <input id={`quantity-${label}`} aria-valuemin={1} value={quantity} onChange={(e) =>dispatch(setQuantity(e.currentTarget.value,id))} />
         </label>
       </td>
     </tr>

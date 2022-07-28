@@ -1,4 +1,4 @@
-import { ADD_ALIMENT, SET_ALIMENTS, SET_ALIMENT_CALORIES, SET_ALIMENT_SELECTED } from "../actions/actions"
+import { ADD_ALIMENT, SET_ALIMENTS, SET_ALIMENT_CALORIES, SET_ALIMENT_SELECTED, SET_QUANTITY } from "../actions/actions"
 
 const initialState = {
   alimentSelected: '',
@@ -75,6 +75,24 @@ const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         aliments: payload
+      }
+    case SET_QUANTITY:
+      const alimentIndex = state.alimentsUser.findIndex((aliment) => aliment.id === payload.alimentId);
+      const alimentsUserCopy = [...state.alimentsUser];
+      const aliment = alimentsUserCopy[alimentIndex];
+
+      const InputQuantity = +payload.quantity < 1 ? 1 : +payload.quantity;
+      const { quantity } = aliment;
+
+        aliment.protein = (aliment.protein / quantity) * InputQuantity;
+        aliment.carbohydrate = (aliment.carbohydrate / quantity) * InputQuantity;
+        aliment.fat = (aliment.fat / quantity) * InputQuantity;
+        aliment.quantity = InputQuantity;
+
+        alimentsUserCopy[alimentIndex] = aliment;
+      return {
+        ...state,
+        alimentsUser: alimentsUserCopy,
       }
 
   default:

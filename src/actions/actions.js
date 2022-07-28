@@ -17,11 +17,12 @@ export const setAlimentSelected = (alimentSelected) => {
   }
 };
 
-const CHANGE_QUANTIY = "CHANGE_QUANTITY";
-const setQuantity = (value) => ({
-  type: CHANGE_QUANTIY,
+export const SET_QUANTITY = "SET_QUANTITY";
+export const setQuantity = (quantity, alimentId) => ({
+  type: SET_QUANTITY,
   payload: {
-    value
+    quantity,
+    alimentId,
   }
 })
 
