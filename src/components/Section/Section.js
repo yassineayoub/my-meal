@@ -19,20 +19,6 @@ const Section = ({ title, aliments }) => {
         </thead>
         <tbody>
         {alimentsToDisplay}
-        <tr>
-          <td>Carottes</td>
-          <td>250</td>
-          <td>10</td>
-          <td>2</td>
-          <td>250g</td>
-        </tr>
-        <tr>
-          <td>Carottes</td>
-          <td>250</td>
-          <td>10</td>
-          <td>2</td>
-          <td>250g</td>
-        </tr>
         </tbody>
       </table>
     </section>
