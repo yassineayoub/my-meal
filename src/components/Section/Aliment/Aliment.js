@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react'
+import DeleteIcon from '@material-ui/icons/Delete';
+import { TextField, Button } from '@material-ui/core'
 import { useDispatch } from 'react-redux';
-import { setQuantity } from '../../../actions/actions';
+import { deleteAliment, setQuantity } from '../../../actions/actions';
 
 const Aliment = ({ id, label, protein, carbohydrate, fat, quantity }) => {
   const dispatch = useDispatch();
@@ -12,9 +14,11 @@ const Aliment = ({ id, label, protein, carbohydrate, fat, quantity }) => {
       <td>{carbohydrate}</td>
       <td>{fat}</td>
       <td>
-        <label htmlFor={`quantity-${label}`}>
+        {/* <label htmlFor={`quantity-${label}`}>
             <input id={`quantity-${label}`} aria-valuemin={1} value={quantity} onChange={(e) =>dispatch(setQuantity(e.currentTarget.value,id))} />
-        </label>
+        </label> */}
+        <TextField id={`quantity-${label}`} name={label} type="number" value={quantity} onChange={(e) =>dispatch(setQuantity(e.currentTarget.value,id))}/>
+        <DeleteIcon onClick={() => dispatch(deleteAliment(id))} />
       </td>
     </tr>
   )
