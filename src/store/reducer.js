@@ -91,9 +91,9 @@ const reducer = (state = initialState, { type, payload }) => {
       const InputQuantity = +payload.quantity < 1 ? 1 : +payload.quantity;
       const { quantity } = aliment;
 
-        aliment.protein = (aliment.protein / quantity) * InputQuantity;
-        aliment.carbohydrate = (aliment.carbohydrate / quantity) * InputQuantity;
-        aliment.fat = (aliment.fat / quantity) * InputQuantity;
+        aliment.protein = +((aliment.protein / quantity) * InputQuantity).toFixed(1);
+        aliment.carbohydrate = +((aliment.carbohydrate / quantity) * InputQuantity).toFixed(1);
+        aliment.fat = +((aliment.fat / quantity) * InputQuantity).toFixed(1);
         aliment.quantity = InputQuantity;
 
         alimentsUserCopy[alimentIndex] = aliment;

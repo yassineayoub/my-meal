@@ -14,7 +14,7 @@ export default function ComboBox() {
           disablePortal
           id="selectAliment"
           options={aliments}
-          sx={{ width: 300 }}
+          sx={{ width: '100%' }}
           renderInput={(params) => <TextField onSelect={(e)=> dispatch(setAlimentSelected(e.target.value))} {...params} label="Aliments" />}
         />
       );
