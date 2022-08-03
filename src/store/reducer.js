@@ -1,4 +1,4 @@
-import { ADD_ALIMENT, SET_ALIMENTS, SET_ALIMENT_CALORIES, SET_ALIMENT_SELECTED, SET_QUANTITY } from "../actions/actions"
+import { ADD_ALIMENT, DELETE_ALIMENT, SET_ALIMENTS, SET_ALIMENT_CALORIES, SET_ALIMENT_SELECTED, SET_QUANTITY } from "../actions/actions"
 
 const initialState = {
   alimentSelected: '',
@@ -76,6 +76,13 @@ const reducer = (state = initialState, { type, payload }) => {
         ...state,
         aliments: payload
       }
+    case DELETE_ALIMENT:
+      const newAlimentArray = state.alimentsUser.filter((aliment) => aliment.id !== payload.alimentId);
+      return {
+        ...state,
+        alimentsUser: newAlimentArray,
+        
+      }
     case SET_QUANTITY:
       const alimentIndex = state.alimentsUser.findIndex((aliment) => aliment.id === payload.alimentId);
       const alimentsUserCopy = [...state.alimentsUser];
@@ -84,9 +91,9 @@ const reducer = (state = initialState, { type, payload }) => {
       const InputQuantity = +payload.quantity < 1 ? 1 : +payload.quantity;
       const { quantity } = aliment;
 
-        aliment.protein = (aliment.protein / quantity) * InputQuantity;
-        aliment.carbohydrate = (aliment.carbohydrate / quantity) * InputQuantity;
-        aliment.fat = (aliment.fat / quantity) * InputQuantity;
+        aliment.protein = +((aliment.protein / quantity) * InputQuantity).toFixed(1);
+        aliment.carbohydrate = +((aliment.carbohydrate / quantity) * InputQuantity).toFixed(1);
+        aliment.fat = +((aliment.fat / quantity) * InputQuantity).toFixed(1);
         aliment.quantity = InputQuantity;
 
         alimentsUserCopy[alimentIndex] = aliment;

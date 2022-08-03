@@ -26,6 +26,16 @@ export const setQuantity = (quantity, alimentId) => ({
   }
 })
 
+export const DELETE_ALIMENT = "DELETE_ALIMENT";
+export const deleteAliment = (alimentId) => {
+  return {
+    type: DELETE_ALIMENT,
+    payload: {
+      alimentId,
+    }
+  }
+}
+
 export const SET_ALIMENT_CALORIES = 'SET_ALIMENT_CALORIES';
 export const setAlimentCalories = (calories) => {
   return {
