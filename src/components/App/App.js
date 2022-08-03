@@ -8,6 +8,7 @@ import { Button } from '@mui/material';
 import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { addAliment } from '../../actions/actions';
+import CreateAlimentForm from '../Section/CreateAlimentForm/CreateAlimentForm';
 
 function App() {
   const alimentsUser = useSelector(state => state.alimentsUser);
@@ -21,6 +22,7 @@ function App() {
 
     <div className="App">
       <AddAlimentForm />
+      <CreateAlimentForm />
       {/* Ajout d'une nouvelle section  */}
       <form>
         <Button variant='outlined' onClick={() => setSectionCounter(sectionCounter + 1)}>Ajouter une section</Button>
