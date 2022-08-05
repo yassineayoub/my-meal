@@ -30,8 +30,8 @@ function App() {
       setMeals([...meals, {name: inputField}])}}>
       Créer un repas : 
       <TextField label="nom" const value={inputField} onChange={(e) => setInputField(e.currentTarget.value)} />
-
     </form>
+      <AddAlimentForm />
       {meals.map((meal) => <Section title={`${meal.name}`} aliments={alimentsUser} />)}
       {/* <AddAlimentForm />
       <CreateAlimentForm />
@@ -39,7 +39,7 @@ function App() {
       <form>
         <Button variant='outlined' onClick={() => setSectionCounter(sectionCounter + 1)}>Ajouter une section</Button>
       </form> */}
-      <Section title="Matin" aliments={alimentsUser} />
+      {/* <Section title="Matin" aliments={alimentsUser} /> */}
       {/* <Table />  */}
     </div>
 

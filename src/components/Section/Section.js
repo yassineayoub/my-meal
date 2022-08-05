@@ -1,3 +1,4 @@
+import AddAlimentForm from './AddAlimentForm/AddAlimentForm';
 import Aliment from './Aliment/Aliment';
 import './Section.css';
 
