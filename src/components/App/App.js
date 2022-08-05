@@ -9,6 +9,8 @@ import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { addAliment } from '../../actions/actions';
 import CreateAlimentForm from '../Section/CreateAlimentForm/CreateAlimentForm';
+import Header from '../Header/Header';
+import { TextField } from '@material-ui/core';
 
 
 function App() {
@@ -16,18 +18,27 @@ function App() {
   const alimentSelected = useSelector(state => state.alimentSelected);
   const dispatch = useDispatch();
     console.log(alimentSelected);
-  const [sectionCounter, setSectionCounter] = useState(0);
-
+  const [inputField, setInputField] = useState('');
+  const [meals, setMeals] = useState([{}])
 
   return (
 
     <div className="App">
-      <AddAlimentForm />
+    <Header />
+    <form onSubmit={(e) => {
+      e.preventDefault();
+      setMeals([...meals, {name: inputField}])}}>
+      Créer un repas : 
+      <TextField label="nom" const value={inputField} onChange={(e) => setInputField(e.currentTarget.value)} />
+
+    </form>
+      {meals.map((meal) => <Section title={`${meal.name}`} aliments={alimentsUser} />)}
+      {/* <AddAlimentForm />
       <CreateAlimentForm />
-      {/* Ajout d'une nouvelle section  */}
+     
       <form>
         <Button variant='outlined' onClick={() => setSectionCounter(sectionCounter + 1)}>Ajouter une section</Button>
-      </form>
+      </form> */}
       <Section title="Matin" aliments={alimentsUser} />
       {/* <Table />  */}
     </div>
