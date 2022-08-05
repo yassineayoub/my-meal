@@ -11,10 +11,10 @@ const Section = ({ title, aliments }) => {
       <thead className="section__header table-light">
           <tr>
             <th>Aliment</th>
-            <th>Proteines</th>
-            <th>Glucide</th>
-            <th>Lipides</th>
-            <th>Quantité(g)</th>
+            <th>Prot.</th>
+            <th>Gluc.</th>
+            <th>Lipi.</th>
+            <th>Qt(g)</th>
           </tr>
         </thead>
         <tbody>

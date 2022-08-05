@@ -5,13 +5,13 @@ import { TextField, Button } from '@material-ui/core'
 import { useDispatch } from 'react-redux';
 import { deleteAliment, setQuantity } from '../../../actions/actions';
 
-const Aliment = ({ id, label, protein, carbohydrate, fat, quantity }) => {
+const Aliment = ({ id, label, protein, carbs, fat, quantity }) => {
   const dispatch = useDispatch();
   return (
     <tr>
       <td>{label}</td>
       <td>{protein}</td>
-      <td>{carbohydrate}</td>
+      <td>{carbs}</td>
       <td>{fat}</td>
       <td>
         {/* <label htmlFor={`quantity-${label}`}>
@@ -27,7 +27,7 @@ const Aliment = ({ id, label, protein, carbohydrate, fat, quantity }) => {
 Aliment.propTypes = {
   label: PropTypes.string.isRequired,
   protein: PropTypes.number.isRequired,
-  carbohydrate: PropTypes.number.isRequired,
+  carbs: PropTypes.number.isRequired,
   fat: PropTypes.number.isRequired,
   quantity: PropTypes.number.isRequired,
 };
