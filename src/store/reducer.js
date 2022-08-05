@@ -1,4 +1,4 @@
-import { ADD_ALIMENT, DELETE_ALIMENT, SET_ALIMENTS, SET_ALIMENT_CALORIES, SET_ALIMENT_SELECTED, SET_QUANTITY } from "../actions/actions"
+import { ADD_ALIMENT, ADD_ALIMENT_TO_ARRAY, DELETE_ALIMENT, SET_ALIMENTS, SET_ALIMENT_CALORIES, SET_ALIMENT_SELECTED, SET_QUANTITY } from "../actions/actions"
 
 const initialState = {
   alimentSelected: '',
@@ -12,7 +12,7 @@ const initialState = {
       id: 1,
       label: 'epinard',
       protein: 15,
-      carbohydrate: 50,
+      carbs: 50,
       fat: 2,
       quantity: 100,
     },
@@ -71,10 +71,12 @@ const reducer = (state = initialState, { type, payload }) => {
       ...state, 
       alimentCalorie: payload 
     }
-    case SET_ALIMENTS:
+    case ADD_ALIMENT_TO_ARRAY:
+      payload.id = Math.random();
+      payload.quantity = 100;
       return {
         ...state,
-        aliments: payload
+        aliments: [...state.aliments, payload]
       }
     case DELETE_ALIMENT:
       const newAlimentArray = state.alimentsUser.filter((aliment) => aliment.id !== payload.alimentId);

@@ -15,7 +15,7 @@ const AddAlimentForm = () => {
         dispatch(addAliment())}}>
       <h4>Rechercher un aliment</h4>
         <Select />
-        <Checkbox />
+        {/* <Checkbox /> */}
         <Button type='submit' variant="outlined">
           Valider
         </Button>

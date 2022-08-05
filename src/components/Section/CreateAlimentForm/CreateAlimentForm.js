@@ -3,16 +3,21 @@ import { TextField } from '@material-ui/core'
 
 import { Button } from '@mui/material'
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { addAlimentToArray } from '../../../actions/actions'
 
 const CreateAlimentForm = () => {
   const [aliment, setAliment] = useState({})
+  const dispatch = useDispatch();
   console.log(aliment)
   return (
     <>
-    <form>
+    <form onSubmit={(e) => 
+    {e.preventDefault();
+    dispatch(addAlimentToArray(aliment))}}>
       <div className="form__input">
-        <label htmlFor='name'>Nom de l'aliment :</label>
-        <input id='name' onChange={(e) => setAliment({...aliment, [e.currentTarget.id]: e.currentTarget.value})}/>
+        <label htmlFor='label'>Nom de l'aliment :</label>
+        <input id='label' onChange={(e) => setAliment({...aliment, [e.currentTarget.id]: e.currentTarget.value})}/>
       </div>
       <div className="form__input">
         <label htmlFor='carbs'>Glucides : </label>
@@ -26,7 +31,7 @@ const CreateAlimentForm = () => {
         <label htmlFor='fat'>Lipides :</label>
         <input id='fat' onChange={(e) => setAliment({...aliment, [e.currentTarget.id]: e.currentTarget.value})}/>
       </div>
-    <Button>Ajouter</Button>
+    <Button type="submit">Ajouter</Button>
     </form>
     </>
   )

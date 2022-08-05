@@ -44,13 +44,11 @@ export const setAlimentCalories = (calories) => {
   }
 };
 
-export const SET_ALIMENTS = 'SET_ALIMENTS';
-export const setAliments = (aliments) => {
+export const ADD_ALIMENT_TO_ARRAY = 'ADD_ALIMENT_TO_ARRAY';
+export const addAlimentToArray = (aliments) => {
   return {
-    type: SET_ALIMENT_CALORIES,
-    payload: {
-      aliments,
-    },
+    type: ADD_ALIMENT_TO_ARRAY,
+    payload: aliments,
   
   }
 };

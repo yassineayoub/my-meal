@@ -7,7 +7,8 @@ const CheckBox = () => {
   return (
     <FormGroup>
         <FormControlLabel control={<Checkbox onChange={(e) => console.log(e)} defaultChecked />} label="Ajouter à tous" />
-        <FormControlLabel disabled control={<Checkbox />} label="Ajouter à matin" />
+        <FormControlLabel control={<Checkbox />} label="Ajouter à matin" />
+        <FormControlLabel control={<Checkbox />} label="Ajouter à matin" />
     </FormGroup>
   )
 }
