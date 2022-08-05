@@ -28,7 +28,7 @@ function App() {
         <Button variant='outlined' onClick={() => setSectionCounter(sectionCounter + 1)}>Ajouter une section</Button>
       </form>
       <Section title="Matin" aliments={alimentsUser} />
-      <Table /> 
+      {/* <Table />  */}
     </div>
 
     
